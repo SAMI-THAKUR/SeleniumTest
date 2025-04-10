@@ -14,12 +14,14 @@ public class LoginTest {
     @BeforeTest
     public void setup() {
         // Make sure the chromedriver path is correct
-        System.setProperty("webdriver.chrome.driver", 
-                "chromedriver.exe");
+        System.setProperty("", 
+                "E:\\ENGINEERING\\SEM_0110\\SE&PM\\SeleniumTestProject\\SeleniumTestProject\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        File indexFile = new File("index.html"); // Relative to project root
+        String filePath = "file://" + indexFile.getAbsolutePath();
+        driver.get("E:\\ENGINEERING\\SEM_0110\\SE&PM\\SeleniumTestProject\\SeleniumTestProject\\index.html");
         // Make sure this URL is valid for your environment
-        driver.get("index.html");
     }
 
     @Test
