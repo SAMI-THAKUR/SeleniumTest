@@ -14,7 +14,7 @@ public class LoginTest {
     @BeforeTest
     public void setup() {
         // Make sure the chromedriver path is correct
-        System.setProperty("", 
+        System.setProperty("webdriver.chrome.driver", 
                 "E:\\ENGINEERING\\SEM_0110\\SE&PM\\SeleniumTestProject\\SeleniumTestProject\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
