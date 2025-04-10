@@ -1,4 +1,5 @@
 package com.selenium.tests;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,28 +7,34 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
 public class LoginTest {
-WebDriver driver;
-@BeforeTest
-public void setup() {
-System.setProperty("webdriver.chrome.driver",
-"C:\\Users\\Admin\\myfirst\\SeleniumTestProject\\chromedriver.exe");
-driver = new ChromeDriver();
-driver.manage().window().maximize();
-driver.get("file:///C:/Users/Admin/myfirst/SeleniumTestProject/index.html"); // Change
-this to your actual login page URL
-}
-@Test
-public void testLogin() {
-WebElement username = driver.findElement(By.id("username"));
-WebElement password = driver.findElement(By.id("password"));
-WebElement loginButton = driver.findElement(By.id("login"));
-username.sendKeys("testuser");
-password.sendKeys("password123");
-loginButton.click();
-}
-@AfterTest
-public void tearDown() {
-driver.quit();
-}
+    WebDriver driver;
+
+    @BeforeTest
+    public void setup() {
+        // Make sure the chromedriver path is correct
+        System.setProperty("webdriver.chrome.driver", 
+                "chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        // Make sure this URL is valid for your environment
+        driver.get("index.html");
+    }
+
+    @Test
+    public void testLogin() {
+        WebElement username = driver.findElement(By.id("username"));
+        WebElement password = driver.findElement(By.id("password"));
+        WebElement loginButton = driver.findElement(By.id("login"));
+
+        username.sendKeys("testuser");
+        password.sendKeys("password123");
+        loginButton.click();
+    }
+
+    @AfterTest
+    public void tearDown() {
+        driver.quit();
+    }
 }
